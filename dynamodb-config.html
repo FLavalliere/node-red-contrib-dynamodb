@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dynamodb-config',{
+        category: 'config',
+        defaults: {
+            name: {value: ""},
+            accessKey: {value: ""},
+            secretAccessKey: {value: ""},
+            region: {value: ""}
+        },
+        label: function() {
+            return this.name;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="dynamodb-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-accessKey"><i class="fa fa-lock"></i> Access Key</label>
+        <input type="text" id="node-config-input-accessKey">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-secretAccessKey"><i class="fa fa-lock"></i> Secret Access Key</label>
+        <input type="text" id="node-config-input-secretAccessKey">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-region"><i class="fa fa-lock"></i> Region</label>
+        <input type="text" id="node-config-input-region">
+    </div>
+</script>

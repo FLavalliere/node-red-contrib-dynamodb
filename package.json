@@ -1,0 +1,40 @@
+{
+  "name": "node-red-contrib-dynamodb",
+  "version": "0.0.0",
+  "description": "A Node-RED node for integration with Amazon Dynamo DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predev": "npm i -g",
+    "dev": "node-red -v"
+  },
+  "author": "Stephen Keep",
+  "contributors": [
+    {
+      "name": "Stephen Keep",
+      "email": "Stephen.Keep@redant.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://git.com/redconnect-io/node-red-contrib-dynamodb"
+  },
+  "keywords": [
+    "node-red",
+    "redconnect",
+    "dynamodb",
+    "amazon"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "aws-sdk": "^2.2.32",
+    "dynamodb-stream": "0.0.12",
+    "tempus-fugit": "^2.2.3"
+  },
+  "node-red": {
+    "nodes": {
+      "dynamodb-stream": "dynamodb-stream.js",
+      "dynamodb-config": "dynamodb-config.js"
+    }
+  }
+}

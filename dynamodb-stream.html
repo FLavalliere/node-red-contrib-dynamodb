@@ -1,0 +1,51 @@
+
+<script type="text/x-red" data-template-name="dynamodb-stream">
+
+   <div class="form-row">
+        <label for="node-input-aws"> AWS Token</label>
+        <input type="text" id="node-input-aws">
+    </div>
+    
+    <!-- By convention, most nodes have a 'name' property. The following div -->
+    <!-- provides the necessary field. Should always be the last option      -->
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name of this Node">
+    </div>
+        <div class="form-row">
+        <label for="node-input-arn"><i class="fa fa-tag"></i> ARN</label>
+        <input type="text" id="node-input-arn" placeholder="My stream arn">
+    </div>
+    
+</script>
+
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="dynamodb-stream">
+
+    <h3>About</h3>
+    <p>Starts a stream from the dynamodb server.</p>
+
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+    RED.nodes.registerType('dynamodb-stream', {
+        category: 'Dynamo DB',
+        defaults: {    
+            aws: {value:"", type:"dynamodb-config"},
+            name: {value:""},
+            arn: {value:""}
+        },
+        inputs:0,               // set the number of inputs - only 0 or 1
+        outputs:1,              // set the number of outputs - 0 to n
+        icon: "dynamodb.png",     // saved in  icons/myicon.png
+        color: "#F90", 
+        label: function() {
+            return this.name || "Stream";
+        },
+        paletteLabel: "Stream"
+        
+    });
+</script>
