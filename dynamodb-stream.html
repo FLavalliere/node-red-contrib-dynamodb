@@ -25,6 +25,21 @@
 
     <h3>About</h3>
     <p>Starts a stream from the dynamodb server.</p>
+    
+    <h3>Output</h3>
+    <p>The output of this msg contains a string called topic and an object called payload. Topic contains the type of event that was triggered:</p>
+    <ul>
+        <li>'insert record'</li>
+        <li>'remove record'</li>
+        <li>'modify record'</li>
+    </ul>
+    <p>The payload object contains the data returned from the AWS Stream. If the topic is of type 'modify record' then the payload contains two objects.</p>
+    <pre>
+        var payload = {
+            old: oldData,
+            new: newData
+        };
+    </pre>
 
 </script>
 
@@ -32,7 +47,7 @@
 <!-- The example below shows a small subset of the properties that can be set-->
 <script type="text/javascript">
     RED.nodes.registerType('dynamodb-stream', {
-        category: 'Dynamo DB',
+        category: 'dynamodb',
         defaults: {    
             aws: {value:"", type:"dynamodb-config"},
             name: {value:""},
@@ -41,7 +56,7 @@
         inputs:0,               // set the number of inputs - only 0 or 1
         outputs:1,              // set the number of outputs - 0 to n
         icon: "dynamodb.png",     // saved in  icons/myicon.png
-        color: "#F90", 
+        color: "#5294cf", 
         label: function() {
             return this.name || "Stream";
         },
