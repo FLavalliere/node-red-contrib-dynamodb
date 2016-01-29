@@ -36,8 +36,8 @@ module.exports = function(RED) {
             }
             console.log('AWS Connected');  
             
-            // do this every 1 minute, starting from the next round minute
-            schedule({ minute: 1 }, function (job) {
+            // do this every 10 seconds, starting from the next round minute
+            schedule({ second: 10 }, function (job) {
                 ddbStream.fetchStreamState(job.callback())
             })
         });
@@ -54,7 +54,6 @@ module.exports = function(RED) {
         };
 
         ddbStream.on('insert record', function (data) {
-            console.log(data);
             sendData('insert record', data);
         });
 
@@ -73,10 +72,10 @@ module.exports = function(RED) {
         })
 
         ddbStream.on('new shards', function (shardIds) {
-            console.log(shardIds);
+            //console.log(shardIds);
         });
         ddbStream.on('remove shards', function (shardIds) {
-             console.log(shardIds);
+             //console.log(shardIds);
         });
         
     }
