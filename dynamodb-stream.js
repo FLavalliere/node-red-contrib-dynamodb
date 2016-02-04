@@ -31,8 +31,9 @@ module.exports = function(RED) {
         // fetch stream state initially
         ddbStream.fetchStreamState(function (err) {
             if (err) {
-                console.error(err)
-                return process.exit(1)
+                console.error(err);
+                node.error(err);
+                return;
             }
             console.log('AWS Connected');  
             
